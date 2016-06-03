@@ -10,6 +10,11 @@
     <sprite>sprites\sprGun</sprite>
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBeam</sprite>
+    <sprite>sprites\spr_laser_1</sprite>
+    <sprite>sprites\spr_laser_2</sprite>
+    <sprite>sprites\spr_shooter</sprite>
+    <sprite>sprites\spr_small_flash</sprite>
+    <sprite>sprites\spr_target</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -22,6 +27,8 @@
     <object>objects\objScrap</object>
     <object>objects\objBeam</object>
     <object>objects\objTarget</object>
+    <object>objects\obj_shooter</object>
+    <object>objects\obj_target</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testRoom</room>
