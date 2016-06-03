@@ -101,10 +101,6 @@ if speed &lt; -maxSpeed{
 
 gun_image_angle = point_direction(x, y, mouse_x, mouse_y)
 
-/*if(mouse_check_button(mb_left) and canShoot) {
-    scrWeapon();
-    }
-  */  
 if keyboard_check(w) {
     vspeed -= (acceleration)}
 if keyboard_check(s) {
