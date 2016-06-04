@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>currentWeapon = 'faceHunter'
-instance_create(x, y, objBeam)
 
 gun_image_angle = point_direction(x, y, mouse_x, mouse_y);
 canShoot = true;

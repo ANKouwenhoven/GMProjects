@@ -15,6 +15,7 @@
     <sprite>sprites\spr_shooter</sprite>
     <sprite>sprites\spr_small_flash</sprite>
     <sprite>sprites\spr_target</sprite>
+    <sprite>sprites\sprLaserImpact</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -25,9 +26,8 @@
     <object>objects\objPlayer</object>
     <object>objects\objScrapSpitterBullet</object>
     <object>objects\objScrap</object>
-    <object>objects\objBeam</object>
     <object>objects\objTarget</object>
-    <object>objects\obj_shooter</object>
+    <object>objects\objLaser</object>
     <object>objects\obj_target</object>
   </objects>
   <rooms name="rooms">
