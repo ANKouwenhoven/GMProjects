@@ -10,9 +10,6 @@
     <sprite>sprites\sprGun</sprite>
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBeam</sprite>
-    <sprite>sprites\spr_laser_1</sprite>
-    <sprite>sprites\spr_laser_2</sprite>
-    <sprite>sprites\spr_shooter</sprite>
     <sprite>sprites\spr_small_flash</sprite>
     <sprite>sprites\spr_target</sprite>
     <sprite>sprites\sprLaserImpact</sprite>
