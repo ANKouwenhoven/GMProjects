@@ -179,8 +179,6 @@ if instance_exists(inst)
 }
     
 laser_length = de;  //laser length is now equal to d.  (0 = no length, 1 = max_length)
-laser_color2 = make_color_hsv(random(255),255,255); //central beam color
-laser_alpha = sin(counter++*2.0)*(0.5+random(0.5))*0.3+0.7;  //make laser alpha pulsate
 laser_surface_x = laser_origin_x - laser_sprite_origin_y*se;  //subtract laser sprite origin so that laser surface is drawn at correct position
 laser_surface_y = laser_origin_y - laser_sprite_origin_y*c; //subtract laser sprite origin so that laser surface is drawn at correct position
 laser_part_length = laser_sprite_width*laser_length  //compute what section of laser sprite we will be drawing to the laser surface
@@ -222,7 +220,7 @@ laser_direction = image_angle;  //angle of laser
     draw_clear(c_black);  //clear surface.    
     
     draw_set_blend_mode(bm_add);
-    draw_sprite_part_ext(sprBeam, sprBeam.sprite_index, 0, 0, laser_part_length, 6, 0, laser_sprite_height * 0.5 - 1.0, 1.0 / laser_length, 1.0, c_white, 1);
+    draw_sprite_part_ext(sprBeam, sprBeam.sprite_index, 0, 0, laser_part_length, laser_sprite_height, 0, laser_sprite_height * 0.5 - 1.0, 1.0 / laser_length, 1.0, c_white, 1.0);
     
     surface_reset_target();
     
