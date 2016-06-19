@@ -25,23 +25,25 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>currentWeapon = 'faceHunter'
+            <string>///Initialize variables
+//Physics properties
+phy_fixed_rotation = true;
+movementSpeed = 2;
 
+//Weapon properties
+currentWeapon = 'faceHunter';
 gun_image_angle = point_direction(x, y, mouse_x, mouse_y);
 canShoot = true;
 
-maxSpeed = 2;
-acceleration = 1;
-friction= 0.25;
-
-laser_max_length = 800;  //max length of laser beam
+//Laser properties
+laser_max_length = 800;  
 laser_sprite_width = sprite_get_width(sprBeam);
 laser_sprite_height = sprite_get_height(sprBeam);
-laser_mount_x = 14;  //position of laser origin relative to unrotated shooter
-laser_mount_y = 0;   //position of laser origin relative to unrotated shooter
-laser_sprite_origin_y = sprite_get_yoffset(sprBeam);  //this is used to make sure the laser surface is drawn in the correct position
+laser_mount_x = 14;  
+laser_mount_y = 0;  
+laser_sprite_origin_y = sprite_get_yoffset(sprBeam); 
 
-//variables
+//Unrelated variables
 counter = 0;
 laser_surf = -3;
 </string>
@@ -89,46 +91,31 @@ laser_surf = -3;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_snap(1, 1)
+            <string>///Movement &amp; Gun usage
 
-if speed &gt; maxSpeed{
-    speed = maxSpeed
-    }
-if speed &lt; -maxSpeed{
-    speed =- maxSpeed
+//Fire weapon on mouseclick
+if(mouse_check_button(mb_left) and canShoot) {
+    scrWeapon();
     }
 
-gun_image_angle = point_direction(x, y, mouse_x, mouse_y)
+//Gun always points at the mouse
+gun_image_angle = point_direction(x, y, mouse_x, mouse_y);
 
+//Player movement with wasd
 if keyboard_check(w) {
-    vspeed -= (acceleration)}
+    phy_position_y -= movementSpeed}
 if keyboard_check(s) {
-    vspeed += (acceleration)}
+    phy_position_y += movementSpeed}
 if keyboard_check(a) {
-    hspeed -= (acceleration)}
+    phy_position_x -= movementSpeed}
 if keyboard_check(d) {
-    hspeed += (acceleration)}
-
-var xmot, ymot;
-x = xprevious ; y = yprevious
-for (i = 0; i &lt; 90; i += 1) {
-    xmot = x + lengthdir_x(speed, direction + i)
-    ymot = y + lengthdir_y(speed, direction + i)
-    if place_free(xmot, ymot) {
-        x = xmot; y = ymot; exit
-        }
-    xmot = x + lengthdir_x(speed, direction - i)
-    ymot = y + lengthdir_y(speed, direction - i)
-    if place_free(xmot, ymot) {
-        x = xmot; y = ymot; exit
-        }
-    }
+    phy_position_x += movementSpeed}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="4" ename="objWall">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -145,13 +132,7 @@ for (i = 0; i &lt; 90; i += 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>spd = point_distance(xprevious, yprevious, x, y);
-dir = point_direction(xprevious, yprevious, x, y);
-
-if(mouse_check_button(mb_left) and canShoot) {
-    scrWeapon();
-    }
-
+            <string>///Collide
 </string>
           </argument>
         </arguments>
@@ -174,11 +155,7 @@ if(mouse_check_button(mb_left) and canShoot) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var dt = point_direction(x, y, mouse_x, mouse_y);
-laserLength = 1000
-draw_set_color(c_red);
-draw_line(x, y - 10, x + lengthdir_x(laserLength, dt), y + lengthdir_y(laserLength, dt));
-
+            <string>//Depending on angle, draw gun over player or vice versa
 if mouse_y &lt; objPlayer.y
     {
     draw_sprite_ext(sprGun,0,x,y-10,image_xscale,image_yscale,gun_image_angle,image_blend,image_alpha)
@@ -198,10 +175,10 @@ if mouse_y &gt;= objPlayer.y
     draw_sprite_ext(sprGun,0,x,y-10,image_xscale,image_yscale,gun_image_angle,image_blend,image_alpha)
     }
     
-    var dt = point_direction(x, y, mouse_x, mouse_y);
-    laserLength = 1000
-    draw_set_color(c_red);
-    draw_line(x, y - 10, x + lengthdir_x(laserLength, dt), y + lengthdir_y(laserLength, dt));
+//    var dt = point_direction(x, y, mouse_x, mouse_y);
+//    laserLength = 1000
+//    draw_set_color(c_red);
+//    draw_line(x, y - 10, x + lengthdir_x(laserLength, dt), y + lengthdir_y(laserLength, dt));
     
 
 </string>
@@ -210,9 +187,9 @@ if mouse_y &gt;= objPlayer.y
       </action>
     </event>
   </events>
-  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
-  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectShape>1</PhysicsObjectShape>
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
@@ -221,5 +198,10 @@ if mouse_y &gt;= objPlayer.y
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>6,16</point>
+    <point>14,16</point>
+    <point>14,20</point>
+    <point>6,20</point>
+  </PhysicsShapePoints>
 </object>

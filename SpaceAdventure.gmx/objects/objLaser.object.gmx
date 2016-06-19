@@ -33,7 +33,7 @@ laser_mount_x = 14;  //position of laser origin relative to unrotated shooter
 laser_mount_y = 0;   //position of laser origin relative to unrotated shooter
 laser_sprite_origin_y = sprite_get_yoffset(sprBeam);  //this is used to make sure the laser surface is drawn in the correct position
 
-image_speed = 1/3
+image_speed = 1/3;
 
 //variables
 counter = 0;
@@ -58,7 +58,7 @@ laser_origin_x = x + laser_mount_x*c + laser_mount_y*se;
 laser_origin_y = y + laser_mount_y*c - laser_mount_x*se;
   
 var limit = 1/laser_max_length; //indicates accuracy of collision point calculation "1" = pixel perfect
-var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,obj_target,1,1);
+var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objWall,1,1);
 if instance_exists(inst)
     {
     //laser has hit something
@@ -69,7 +69,7 @@ if instance_exists(inst)
     while ch &gt; limit {
         var ix = laser_origin_x + we*de;
         var iy = laser_origin_y + h*de;
-        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,obj_target,1,1);
+        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objWall,1,1);
         if instance_exists(inst2) {
             de -= ch;
             inst = inst2;
@@ -152,7 +152,7 @@ laser_origin_x = x + laser_mount_x*c + laser_mount_y*se;
 laser_origin_y = y + laser_mount_y*c - laser_mount_x*se;
   
 var limit = 1/laser_max_length; //indicates accuracy of collision point calculation "1" = pixel perfect
-var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,obj_target,1,1);
+var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objWall,1,1);
 if instance_exists(inst)
     {
     //laser has hit something
@@ -163,7 +163,7 @@ if instance_exists(inst)
     while ch &gt; limit {
         var ix = laser_origin_x + we*de;
         var iy = laser_origin_y + h*de;
-        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,obj_target,1,1);
+        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objWall,1,1);
         if instance_exists(inst2) {
             de -= ch;
             inst = inst2;

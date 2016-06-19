@@ -13,6 +13,7 @@
     <sprite>sprites\spr_small_flash</sprite>
     <sprite>sprites\spr_target</sprite>
     <sprite>sprites\sprLaserImpact</sprite>
+    <sprite>sprites\sprWall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -27,10 +28,10 @@
     <object>objects\objScrap</object>
     <object>objects\objTarget</object>
     <object>objects\objLaser</object>
-    <object>objects\obj_target</object>
+    <object>objects\objWall</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\testRoom</room>
+    <room>rooms\roomTest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
