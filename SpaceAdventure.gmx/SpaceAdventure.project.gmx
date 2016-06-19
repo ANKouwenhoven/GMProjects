@@ -6,7 +6,10 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprPlayer</sprite>
+    <sprite>sprites\sprPlayerDown</sprite>
+    <sprite>sprites\sprPlayerRight</sprite>
+    <sprite>sprites\sprPlayerLeft</sprite>
+    <sprite>sprites\sprPlayerUp</sprite>
     <sprite>sprites\sprGun</sprite>
     <sprite>sprites\sprBullet</sprite>
     <sprite>sprites\sprBeam</sprite>
@@ -14,13 +17,19 @@
     <sprite>sprites\spr_target</sprite>
     <sprite>sprites\sprLaserImpact</sprite>
     <sprite>sprites\sprWall</sprite>
+    <sprite>sprites\sprPlayerShadow</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
+    <background>background\bgGrass</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scrWeapon.gml</script>
+    <scripts name="Player">
+      <script>scripts\scrWeapon.gml</script>
+      <script>scripts\scrMovement.gml</script>
+      <script>scripts\scrDashState.gml</script>
+      <script>scripts\scrGetInput.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\objPlayer</object>
@@ -29,6 +38,8 @@
     <object>objects\objTarget</object>
     <object>objects\objLaser</object>
     <object>objects\objWall</object>
+    <object>objects\objView</object>
+    <object>objects\objDashEffect</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTest</room>
