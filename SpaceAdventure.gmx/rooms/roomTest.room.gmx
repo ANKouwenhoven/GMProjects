@@ -53,9 +53,9 @@
   <instances>
     <instance objName="objPlayer" x="352" y="160" name="inst_FC46DC74" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWall" x="0" y="0" name="inst_6C1130D8" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
-    <instance objName="objWall" x="32" y="0" name="inst_8876F95C" locked="0" code="" scaleX="19" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objWall" x="608" y="32" name="inst_303BEACA" locked="0" code="" scaleX="1" scaleY="10" colour="4294967295" rotation="0"/>
-    <instance objName="objWall" x="32" y="320" name="inst_9650B916" locked="0" code="" scaleX="18" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWall" x="0" y="0" name="inst_8876F95C" locked="0" code="" scaleX="20" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWall" x="608" y="0" name="inst_303BEACA" locked="0" code="" scaleX="1" scaleY="11" colour="4294967295" rotation="0"/>
+    <instance objName="objWall" x="0" y="320" name="inst_9650B916" locked="0" code="" scaleX="20" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTarget" x="256" y="160" name="inst_43462A9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWall" x="128" y="32" name="inst_52B93E17" locked="0" code="" scaleX="2" scaleY="5" colour="4294967295" rotation="0"/>
     <instance objName="objWall" x="448" y="160" name="inst_30A4B92D" locked="0" code="" scaleX="2" scaleY="5" colour="4294967295" rotation="0"/>
@@ -63,6 +63,9 @@
     <instance objName="objWall" x="288" y="32" name="inst_D04E89E0" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objView" x="352" y="160" name="inst_C2875D88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayer" x="640" y="256" name="inst_560B5D05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemySlime" x="192" y="224" name="inst_D07EDAE3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemySlime" x="288" y="224" name="inst_405D1082" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEnemySlime" x="320" y="96" name="inst_2819D330" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

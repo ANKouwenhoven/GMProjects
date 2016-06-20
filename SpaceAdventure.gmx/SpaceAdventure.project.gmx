@@ -18,6 +18,7 @@
     <sprite>sprites\sprLaserImpact</sprite>
     <sprite>sprites\sprWall</sprite>
     <sprite>sprites\sprPlayerShadow</sprite>
+    <sprite>sprites\sprEnemySlime</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
@@ -40,6 +41,8 @@
     <object>objects\objWall</object>
     <object>objects\objView</object>
     <object>objects\objDashEffect</object>
+    <object>objects\objEnemySlime</object>
+    <object>objects\objLifeformParent</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTest</room>
