@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Initialize variables
+            <string>///Initialize the Player
 
 // Inherit from parent
 event_inherited();
@@ -45,6 +45,7 @@ dir = 0;
 currentWeapon = 'faceHunter';
 gunImageAngle = point_direction(x, y, mouse_x, mouse_y);
 canShoot = true;
+attacked = false;
 
 // Laser properties
 laser_max_length = 800;  
@@ -147,6 +148,34 @@ script_execute(state);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Change back to Move state
+
+if (state == scrAttackState) {
+    state = scrMovement;
+    attacked = false;
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -164,7 +193,9 @@ script_execute(state);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprPlayerShadow, image_index, x, y);
+            <string>///Draw all sprites of the Player
+
+draw_sprite(sprPlayerShadow, image_index, x, y);
 
 if(mouse_x &gt; objPlayer.x) {
     gunScale = 1;
@@ -202,7 +233,7 @@ if (mouse_y &gt;= objPlayer.y) {
   <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
   <PhysicsObjectRestitution>0.100000001490116</PhysicsObjectRestitution>
   <PhysicsObjectGroup>0</PhysicsObjectGroup>
-  <PhysicsObjectLinearDamping>0.100000001490116</PhysicsObjectLinearDamping>
+  <PhysicsObjectLinearDamping>5</PhysicsObjectLinearDamping>
   <PhysicsObjectAngularDamping>0.100000001490116</PhysicsObjectAngularDamping>
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>

@@ -430,7 +430,7 @@
   </Options>
   <ConfigConstants>
     <constants number="5">
-      <constant name="gunAngle">objPlayer.gun_image_angle</constant>
+      <constant name="gunAngle">objPlayer.gunImageAngle</constant>
       <constant name="a">ord('A')</constant>
       <constant name="w">ord('W')</constant>
       <constant name="s">ord('S')</constant>

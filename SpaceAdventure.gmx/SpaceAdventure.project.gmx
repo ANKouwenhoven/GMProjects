@@ -6,19 +6,26 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprPlayerDown</sprite>
-    <sprite>sprites\sprPlayerRight</sprite>
-    <sprite>sprites\sprPlayerLeft</sprite>
-    <sprite>sprites\sprPlayerUp</sprite>
-    <sprite>sprites\sprGun</sprite>
-    <sprite>sprites\sprBullet</sprite>
-    <sprite>sprites\sprBeam</sprite>
-    <sprite>sprites\spr_small_flash</sprite>
-    <sprite>sprites\spr_target</sprite>
-    <sprite>sprites\sprLaserImpact</sprite>
     <sprite>sprites\sprWall</sprite>
-    <sprite>sprites\sprPlayerShadow</sprite>
     <sprite>sprites\sprEnemySlime</sprite>
+    <sprite>sprites\sprDamage</sprite>
+    <sprites name="Player">
+      <sprite>sprites\sprPlayerDown</sprite>
+      <sprite>sprites\sprPlayerLeft</sprite>
+      <sprite>sprites\sprPlayerRight</sprite>
+      <sprite>sprites\sprPlayerUp</sprite>
+      <sprite>sprites\sprPlayerAttackDown</sprite>
+      <sprite>sprites\sprPlayerAttackLeft</sprite>
+      <sprite>sprites\sprPlayerAttackRight</sprite>
+      <sprite>sprites\sprPlayerAttackUp</sprite>
+      <sprite>sprites\sprPlayerShadow</sprite>
+      <sprite>sprites\sprGun</sprite>
+    </sprites>
+    <sprites name="Weapon">
+      <sprite>sprites\sprLaserImpact</sprite>
+      <sprite>sprites\sprBeam</sprite>
+      <sprite>sprites\sprBullet</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
@@ -30,19 +37,26 @@
       <script>scripts\scrMovement.gml</script>
       <script>scripts\scrDashState.gml</script>
       <script>scripts\scrGetInput.gml</script>
+      <script>scripts\scrAttackState.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
-    <object>objects\objPlayer</object>
-    <object>objects\objScrapSpitterBullet</object>
-    <object>objects\objScrap</object>
-    <object>objects\objTarget</object>
-    <object>objects\objLaser</object>
-    <object>objects\objWall</object>
-    <object>objects\objView</object>
     <object>objects\objDashEffect</object>
-    <object>objects\objEnemySlime</object>
+    <object>objects\objDamage</object>
     <object>objects\objLifeformParent</object>
+    <objects name="Player">
+      <object>objects\objPlayer</object>
+    </objects>
+    <objects name="Environment">
+      <object>objects\objView</object>
+      <object>objects\objEnemySlime</object>
+      <object>objects\objWall</object>
+    </objects>
+    <objects name="Weapon">
+      <object>objects\objScrap</object>
+      <object>objects\objLaser</object>
+      <object>objects\objScrapSpitterBullet</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTest</room>

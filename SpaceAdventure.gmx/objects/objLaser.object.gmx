@@ -58,7 +58,7 @@ laser_origin_x = x + laser_mount_x*c + laser_mount_y*se;
 laser_origin_y = y + laser_mount_y*c - laser_mount_x*se;
   
 var limit = 1/laser_max_length; //indicates accuracy of collision point calculation "1" = pixel perfect
-var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objWall,1,1);
+var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objLifeformParent,1,1);
 if instance_exists(inst)
     {
     //laser has hit something
@@ -69,7 +69,7 @@ if instance_exists(inst)
     while ch &gt; limit {
         var ix = laser_origin_x + we*de;
         var iy = laser_origin_y + h*de;
-        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objWall,1,1);
+        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objLifeformParent,1,1);
         if instance_exists(inst2) {
             de -= ch;
             inst = inst2;
@@ -85,8 +85,6 @@ if instance_exists(inst)
 }
     
 laser_length = de;  //laser length is now equal to d.  (0 = no length, 1 = max_length)
-laser_color2 = make_color_hsv(random(255),255,255); //central beam color
-laser_alpha = sin(counter++*2.0)*(0.5+random(0.5))*0.3+0.7;  //make laser alpha pulsate
 laser_surface_x = laser_origin_x - laser_sprite_origin_y*se;  //subtract laser sprite origin so that laser surface is drawn at correct position
 laser_surface_y = laser_origin_y - laser_sprite_origin_y*c; //subtract laser sprite origin so that laser surface is drawn at correct position
 laser_part_length = laser_sprite_width*laser_length  //compute what section of laser sprite we will be drawing to the laser surface
@@ -152,7 +150,7 @@ laser_origin_x = x + laser_mount_x*c + laser_mount_y*se;
 laser_origin_y = y + laser_mount_y*c - laser_mount_x*se;
   
 var limit = 1/laser_max_length; //indicates accuracy of collision point calculation "1" = pixel perfect
-var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objWall,1,1);
+var inst = collision_line(laser_origin_x,laser_origin_y,laser_origin_x+we,laser_origin_y+h,objLifeformParent,1,1);
 if instance_exists(inst)
     {
     //laser has hit something
@@ -163,7 +161,7 @@ if instance_exists(inst)
     while ch &gt; limit {
         var ix = laser_origin_x + we*de;
         var iy = laser_origin_y + h*de;
-        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objWall,1,1);
+        var inst2 = collision_line(laser_origin_x,laser_origin_y,ix,iy,objLifeformParent,1,1);
         if instance_exists(inst2) {
             de -= ch;
             inst = inst2;
@@ -216,21 +214,21 @@ laser_direction = image_angle;  //angle of laser
         laser_surf = surface_create(laser_sprite_width, laser_sprite_height);
     surface_set_target(laser_surf);
     
-    
-    draw_clear(c_black);  //clear surface.    
+    draw_clear(c_black);  //clear surface.   
     
     draw_set_blend_mode(bm_add);
-    draw_sprite_part_ext(sprBeam, sprBeam.sprite_index, 0, 0, laser_part_length, laser_sprite_height, 0, laser_sprite_height * 0.5 - 1.0, 1.0 / laser_length, 1.0, c_white, 1.0);
+    draw_sprite_part_ext(sprBeam, sprBeam.sprite_index, 0, 0, laser_part_length, laser_sprite_height, 0, laser_sprite_height * 0.5 - 3, 1.0 / laser_length, 1.0, c_white, 1.0);
     
     surface_reset_target();
     
     //now draw the surface
+    
     draw_surface_ext(laser_surf, laser_surface_x, laser_surface_y, laser_draw_length, 1.0, laser_direction, c_white, 1.0);     
     
     //draw a flash of light in case the laser has hit something.
     //NOTE:  the scale of this flash will be dependant on how far away the target is from the shooter.  (simulating the laser weakening over distance)
     if laser_hit
-        draw_sprite_ext(sprLaserImpact, irandom(1), laser_end_x, laser_end_y, 1, 1, gunAngle - 180, c_white, 1);
+        draw_sprite_ext(sprLaserImpact, irandom(1), laser_end_x, laser_end_y, 1, 1, gunAngle - 180, c_white, 1.0);
     
     
     draw_set_blend_mode(bm_normal);          

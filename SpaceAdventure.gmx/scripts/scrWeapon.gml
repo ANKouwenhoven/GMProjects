@@ -8,7 +8,7 @@ if(currentWeapon = 'scrapSpitter') {
 }
 
 if(currentWeapon = 'faceHunter') {
-    laser = instance_create(x, y - 10, objLaser)
+    laser = instance_create(x, y, objLaser)
     canShoot = false
     alarm[0] = 15
 }

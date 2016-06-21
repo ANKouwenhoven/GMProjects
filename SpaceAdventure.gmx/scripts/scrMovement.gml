@@ -4,6 +4,11 @@ if (dashKey) {
     state = scrDashState;
     alarm[1] = room_speed/8;
     }
+    
+if (attackKey) {
+    image_index = 0;
+    state = scrAttackState;
+    }
 
 // Get direction
 dir = point_direction(0, 0, xaxis, yaxis);
