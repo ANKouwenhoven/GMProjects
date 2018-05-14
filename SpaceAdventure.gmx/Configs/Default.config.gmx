@@ -429,7 +429,11 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="5">
+    <constants number="9">
+      <constant name="DOWN">3</constant>
+      <constant name="LEFT">2</constant>
+      <constant name="UP">1</constant>
+      <constant name="RIGHT">0</constant>
       <constant name="gunAngle">objPlayer.gunImageAngle</constant>
       <constant name="a">ord('A')</constant>
       <constant name="w">ord('W')</constant>

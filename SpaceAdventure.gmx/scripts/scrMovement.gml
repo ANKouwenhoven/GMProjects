@@ -1,8 +1,12 @@
+/// scrMovement
+
 scrGetInput();
 
-if (dashKey) {
+if (dashKey && objPlayerStats.stamina >= 5) {
     state = scrDashState;
     alarm[1] = room_speed/8;
+    objPlayerStats.stamina -= 5;
+    objPlayerStats.alarm[0] = room_speed;
     }
     
 if (attackKey) {
@@ -19,6 +23,7 @@ if (xaxis == 0 && yaxis == 0) {
     }
 else {
     length = movementSpeed;
+    scrGetFace();
     }
 
 // Calculate speeds
@@ -32,16 +37,21 @@ phy_position_y += vSpeed;
 //Control the sprite
 if (length == 0) image_index = 0;
 
-if (vSpeed > 0) {
-    sprite_index = sprPlayerDown;
-    }
-else if (vSpeed < 0) {
-    sprite_index = sprPlayerUp;
-    }
+switch(face) {
 
-if (hSpeed > 0) {
-    sprite_index = sprPlayerRight;
-    }
-else if (hSpeed < 0) {
-    sprite_index = sprPlayerLeft;
-    }
+    case RIGHT:
+        sprite_index = sprPlayerRight;
+        break;
+    
+    case LEFT:
+        sprite_index = sprPlayerLeft;
+        break;
+    
+    case UP:
+        sprite_index = sprPlayerUp;
+        break;
+    
+    case DOWN:
+        sprite_index = sprPlayerDown;
+        break;
+}

@@ -1,4 +1,9 @@
 ///scrDashState
+
+if (length == 0) {
+    dir = face*90;
+}
+
 length = movementSpeed*4;
 
 // Calculate speeds

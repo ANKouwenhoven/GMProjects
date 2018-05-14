@@ -41,6 +41,8 @@ xaxis = 0;
 yaxis = 0;
 dir = 0;
 
+face = RIGHT;
+
 // Weapon properties
 currentWeapon = 'faceHunter';
 gunImageAngle = point_direction(x, y, mouse_x, mouse_y);
@@ -131,7 +133,7 @@ canShoot = true
             <kind>1</kind>
             <string>///Movement &amp; Gun usage
 
-event_inherited();
+depth = -y;
 
 //Fire weapon on mouseclick
 if(mouse_check_button(mb_left) and canShoot) {
@@ -143,6 +145,48 @@ gunImageAngle = point_direction(x, y, mouse_x, mouse_y);
 
 //Run the state of the Player
 script_execute(state);
+
+//Check for death
+if(objPlayerStats.hp &lt;= 0) {
+    instance_destroy();
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objExp">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collect exp
+with (other) instance_destroy();
+with (objPlayerStats) {
+    expr += 1;
+    if (expr &gt;= maxexpr) {
+        level += 1;
+        expr = expr - maxexpr;
+        maxexpr += 3;
+        hp += 2;
+        maxhp += 2;
+        stamina += 2;
+        maxstamina += 2;
+        attack += 1;
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -205,15 +249,15 @@ else {
     }
 
 //Depending on angle, draw gun over player or vice versa
-if (mouse_y &lt; objPlayer.y) {
+/*if (mouse_y &lt; objPlayer.y) {
     draw_sprite_ext(sprGun, 0, x, y+3, image_xscale, gunScale, gunImageAngle, image_blend, image_alpha);
-    }
+    }*/
 
 draw_self();
 
-if (mouse_y &gt;= objPlayer.y) {
+/*if (mouse_y &gt;= objPlayer.y) {
     draw_sprite_ext(sprGun, 0, x, y+3, image_xscale, gunScale, gunImageAngle, image_blend, image_alpha);
-    }
+    }*/
     
 //    var dt = point_direction(x, y, mouse_x, mouse_y);
 //    laserLength = 1000

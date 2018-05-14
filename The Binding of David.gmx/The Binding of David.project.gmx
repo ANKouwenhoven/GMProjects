@@ -22,7 +22,7 @@
       <sprite>sprites\sprCloud</sprite>
       <sprite>sprites\sprIceStorm</sprite>
       <sprites name="Projectiles">
-        <sprite>sprites\objProjBlast</sprite>
+        <sprite>sprites\sprProjBlast</sprite>
       </sprites>
       <sprites name="StatusEffects">
         <sprite>sprites\sprClock</sprite>
@@ -228,13 +228,13 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Alpha Testing</room>
+    <room>rooms\AlphaTesting</room>
     <rooms name="Menus">
       <room>rooms\rm_MainMenu</room>
       <room>rooms\rm_GameSelect</room>
     </rooms>
     <room>rooms\boss</room>
-    <room>rooms\Mass zombie</room>
+    <room>rooms\Masszombie</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

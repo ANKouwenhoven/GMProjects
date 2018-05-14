@@ -1,0 +1,3 @@
+///scrEnemyIdleState();
+
+scrCheckForPlayer();

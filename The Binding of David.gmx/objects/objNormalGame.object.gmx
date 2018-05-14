@@ -72,7 +72,7 @@ image_speed = 0
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>Alpha Testing</room>
+            <room>AlphaTesting</room>
           </argument>
         </arguments>
       </action>

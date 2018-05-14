@@ -26,6 +26,8 @@
       <sprite>sprites\sprBeam</sprite>
       <sprite>sprites\sprBullet</sprite>
     </sprites>
+    <sprite>sprites\sprExp</sprite>
+    <sprite>sprites\mousePointer</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgGrass</background>
@@ -36,8 +38,21 @@
       <script>scripts\scrWeapon.gml</script>
       <script>scripts\scrMovement.gml</script>
       <script>scripts\scrDashState.gml</script>
-      <script>scripts\scrGetInput.gml</script>
       <script>scripts\scrAttackState.gml</script>
+    </scripts>
+    <scripts name="Enemy">
+      <scripts name="Enemy Helper Scripts">
+        <script>scripts\scrEnemyChooseNextState.gml</script>
+        <script>scripts\scrCheckForPlayer.gml</script>
+      </scripts>
+      <script>scripts\scrEnemyIdleState.gml</script>
+      <script>scripts\scrEnemyStallState.gml</script>
+      <script>scripts\scrEnemyWanderState.gml</script>
+      <script>scripts\scrEnemyChaseState.gml</script>
+    </scripts>
+    <scripts name="Helper Scripts">
+      <script>scripts\scrGetInput.gml</script>
+      <script>scripts\scrGetFace.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -46,17 +61,20 @@
     <object>objects\objLifeformParent</object>
     <objects name="Player">
       <object>objects\objPlayer</object>
+      <object>objects\objPlayerStats</object>
     </objects>
     <objects name="Environment">
       <object>objects\objView</object>
       <object>objects\objEnemySlime</object>
       <object>objects\objWall</object>
+      <object>objects\objMousePointer</object>
     </objects>
     <objects name="Weapon">
       <object>objects\objScrap</object>
       <object>objects\objLaser</object>
       <object>objects\objScrapSpitterBullet</object>
     </objects>
+    <object>objects\objExp</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\roomTest</room>

@@ -59,6 +59,44 @@ instance_destroy();
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="objPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Damage handling
+if (other.id != creator) {
+    objPlayerStats.hp -= damage;
+    
+    // Apply the knockback
+    if (instance_exists(creator)) {
+        var dir = point_direction(creator.x, creator.y, other.x, other.y);
+        } else {
+        var dir = point_direction(x, y, other.x, other.y)
+        }
+    var xForce = lengthdir_x(knockback, dir);
+    var yForce = lengthdir_y(knockback, dir);
+    with(other) {
+        physics_apply_impulse(x, y, xForce, yForce);
+        }
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="objLifeformParent">
       <action>
         <libid>1</libid>
@@ -79,8 +117,12 @@ instance_destroy();
             <string>/// Damage handling
 if (other.id != creator) {
     other.hp -= damage;
-    
-    var dir = point_direction(creator.x, creator.y, other.x, other.y);
+    // Apply the knockback
+    if (instance_exists(creator)) {
+        var dir = point_direction(creator.x, creator.y, other.x, other.y);
+        } else {
+        var dir = point_direction(x, y, other.x, other.y)
+        }
     var xForce = lengthdir_x(knockback, dir);
     var yForce = lengthdir_y(knockback, dir);
     with(other) {
